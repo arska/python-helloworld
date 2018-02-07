@@ -1,12 +1,11 @@
 # Dockerfile
 # inherit from this "empty base image", see https://hub.docker.com/_/python/
-FROM python:3-onbuild
-# who takes care of this ?
+FROM python:alpine
 MAINTAINER Aarno Aukia <aarno.aukia@vshn.ch>
-# add all files from this git to path inside container - default
-#ADD . /usr/src/app/
-# run this command inside container at build-time - default
-#RUN pip install -r /usr/src/app/requirements.txt
+WORKDIR /usr/src/app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
 # run this command at run-time
 CMD [ "python", "app.py" ]
 # expose this TCP-port
