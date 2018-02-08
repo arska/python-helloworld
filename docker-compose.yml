@@ -45,20 +45,20 @@ services:
     image: amazeeio/redis
     labels:
       lagoon.type: redis
-  postgres:
-    image: postgres:alpine
-    restart: always
-    environment:
-      - POSTGRES_DB=${AMAZEEIO_SITENAME}
-      - POSTGRES_USER=${AMAZEEIO_POSTGRES_USERNAME}
-      - POSTGRES_PASSWORD=${AMAZEEIO_POSTGRES_PASSWORD}
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    depends_on:
-      - postgres
+#  postgres:
+#    image: postgres:alpine
+#    restart: always
+#    environment:
+#      - POSTGRES_DB=${AMAZEEIO_SITENAME}
+#      - POSTGRES_USER=${AMAZEEIO_POSTGRES_USERNAME}
+#      - POSTGRES_PASSWORD=${AMAZEEIO_POSTGRES_PASSWORD}
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - 8080:8080
+#    depends_on:
+#      - postgres
 
 networks:
   amazeeio-network:
