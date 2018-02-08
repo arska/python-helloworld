@@ -2,6 +2,7 @@ from flask import Flask
 import os
 import pymysql
 import psycopg2
+import redis
 
 app = Flask(__name__)
 
@@ -26,6 +27,13 @@ def hello():
             result += "<p>PostgreSQL: {0}".format(row[0])
     except Exception as e:
         result += "<p>PostgreSQL failed: {0}</p>".format(e)
+
+    try:
+        redisconn = redis.StrictRedis(host=os.environ.get('AMAZEEIO_REDIS_HOST'), port=os.environ.get('AMAZEEIO_REDIS_PORT'))
+        result += "<p>Redis: {0}</p>".format(redisconn.ping())
+    except Exception as e:
+        result += "<p>Redis failed: {0}</p>".format(e)
+
 
     for env in os.environ:
         result += "<p>{0}={1}</p>".format(env,os.environ.get(env))

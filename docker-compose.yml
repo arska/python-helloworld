@@ -10,7 +10,7 @@ services:
     labels:
       lagoon.type: node # just for now, there is no python yet
     volumes:
-      - .:/app:delegated
+      - .:/usr/src/app:delegated
     environment:
       - AMAZEEIO_URL=python.docker.amazee.io
       - AMAZEEIO=AMAZEEIO
