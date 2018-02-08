@@ -30,7 +30,7 @@ services:
     depends_on:
       - mariadb
       - redis
-      - postgres
+#      - postgres
   mariadb:
     image: amazeeio/centos7-mariadb-drupal:10.1
     labels:
