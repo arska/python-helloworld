@@ -17,13 +17,12 @@ class HelloRequestHandler(BaseHTTPRequestHandler):
                 <title>Greetings to the world</title>
             </head>
             <body>
-                <h1>Greetings to the world from ''' + os.environ.get('HOSTNAME', 'here') + '''</h1>
-                <p>''' + os.environ.get('MESSAGE', 'Hello, world!' + '''</p>
+                <h1>Greetings to the world from {0}</h1>
+                <p>{1}</p>
             </body>
             </html>
-        ''')
+        '''.format(os.environ.get('HOSTNAME', 'here'), os.environ.get('MESSAGE', 'Hello, world!')))
         self.wfile.write(response_text.encode('utf-8'))
-
 
 server_address = ('', 8080)
 httpd = HTTPServer(server_address, HelloRequestHandler)
