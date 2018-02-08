@@ -9,13 +9,14 @@ WORKDIR /usr/src/app
 
 # install postgresql libs for psycopg2
 RUN apk update && \
- apk add --virtual .build-deps gcc python3-dev musl-dev postgresql-dev postgresql-libs
+ apk add postgresql-libs &&\
+ apk add --virtual .build-deps gcc python3-dev musl-dev postgresql-dev
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # and remove the libs again to make the image smaller
-RUN apk --purge del .build-deps
+#RUN apk --purge del .build-deps
 
 # copy application source code into container
 COPY . .
