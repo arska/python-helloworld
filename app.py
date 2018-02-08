@@ -24,6 +24,6 @@ class HelloRequestHandler(BaseHTTPRequestHandler):
         '''.format(os.environ.get('HOSTNAME', 'here'), os.environ.get('MESSAGE', 'Hello, world!')))
         self.wfile.write(response_text.encode('utf-8'))
 
-server_address = ('', 8080)
+server_address = ('', 3000)
 httpd = HTTPServer(server_address, HelloRequestHandler)
 httpd.serve_forever()
