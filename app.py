@@ -21,7 +21,7 @@ class HelloRequestHandler(BaseHTTPRequestHandler):
                 <p>{1}</p>
             </body>
             </html>
-        '''.format(os.environ.get('HOSTNAME', 'here'), os.environ.get('MESSAGE', 'Hello, world!')))
+        '''.format(os.environ.get('HOSTNAME', 'here'), os.environ.get('MESSAGE', 'Branching')))
         self.wfile.write(response_text.encode('utf-8'))
 
 server_address = ('', 3000)
