@@ -56,9 +56,9 @@ objects:
           project: ${SAFE_PROJECT}
       spec:
         volumes:
-          - name: ${SERVICE_NAME}-data
+          - name: ${SERVICE_NAME}
             persistentVolumeClaim:
-              claimName: ${SERVICE_NAME}-data
+              claimName: ${SERVICE_NAME}
         containers:
         - image: ${REGISTRY}/${OPENSHIFT_PROJECT}/${SERVICE_NAME}:latest
           name: ${SERVICE_NAME}
