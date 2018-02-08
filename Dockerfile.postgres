@@ -20,7 +20,8 @@ RUN cp /usr/local/bin/docker-entrypoint.sh /lagoon/entrypoints/90-postgres-entry
 
 ENV POSTGRES_PASSWORD=lagoon \
     POSTGRES_USER=lagoon \
-    POSTGRES_DB=lagoon
+    POSTGRES_DB=lagoon \
+    PGDATA=/var/lib/postgresql/data/pgdata
 
 # Postgresql entrypoint file needs bash, so start the entrypoints with bash
 ENTRYPOINT ["/lagoon/entrypoints.bash"]
