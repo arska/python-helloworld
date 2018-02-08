@@ -18,6 +18,8 @@ ENV LAGOON=postgres
 COPY entrypoints.bash /lagoon/entrypoints.bash
 RUN cp /usr/local/bin/docker-entrypoint.sh /lagoon/entrypoints/90-postgres-entrypoint
 
+RUN echo -e "local all all md5\nhost  all  all 0.0.0.0/0 md5" >> /usr/local/share/postgresql/pg_hba.conf
+
 ENV POSTGRES_PASSWORD=lagoon \
     POSTGRES_USER=lagoon \
     POSTGRES_DB=lagoon \
