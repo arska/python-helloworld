@@ -9,7 +9,7 @@ COPY . .
 # run this command at run-time
 CMD [ "python", "app.py" ]
 # expose this TCP-port
-EXPOSE 8080
+EXPOSE 3000
 # make this path persistent between versions of the container - not needed in this example
 # VOLUME /usr/src/app/mypersistentdatavolume/
 
