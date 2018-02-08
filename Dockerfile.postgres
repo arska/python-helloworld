@@ -1,0 +1,5 @@
+FROM postgres:alpine
+
+ENV POSTGRES_PASSWORD=lagoon \
+    POSTGRES_USER=lagoon \
+    POSTGRES_DB=lagoon

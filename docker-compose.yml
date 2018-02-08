@@ -19,7 +19,7 @@ services:
     depends_on:
       - mariadb
       - redis
-#      - postgres
+      - postgres
   mariadb:
     image: amazeeio/mariadb
     labels:
@@ -29,13 +29,13 @@ services:
     image: amazeeio/redis
     labels:
       lagoon.type: redis
-#  postgres:
-#    image: postgres:alpine
-#    restart: always
-#    environment:
-#      - POSTGRES_DB=${AMAZEEIO_SITENAME}
-#      - POSTGRES_USER=${AMAZEEIO_POSTGRES_USERNAME}
-#      - POSTGRES_PASSWORD=${AMAZEEIO_POSTGRES_PASSWORD}
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres
+    labels:
+      lagoon.type: custom
+      lagoon.template: .lagoon.postgres.yml
 #  adminer:
 #    image: adminer
 #    restart: always

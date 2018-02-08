@@ -25,7 +25,12 @@ def hello():
         result += "<p>MySQL failed: {0}</p>".format(e)
 
     try:
-        pgsqlconn = psycopg2.connect(host=os.environ.get('AMAZEEIO_POSTGRES_HOST'), port=int(os.environ.get('AMAZEEIO_POSTGRES_PORT')), user=os.environ.get('AMAZEEIO_POSTGRES_USERNAME'), password=os.environ.get('AMAZEEIO_POSTGRES_PASSWORD'), dbname=os.environ.get('AMAZEEIO_SITENAME'))
+        postgreshost = 'postgres'
+        postgresport = 5432
+        postgresuser = os.environ.get('POSTGRES_USERNAME') if os.environ.get('POSTGRES_USERNAME') else 'lagoon'
+        postgrespassword = os.environ.get('POSTGRES_PASSWORD') if os.environ.get('POSTGRES_PASSWORD') else 'lagoon'
+        postgresdbname = os.environ.get('POSTGRES_DB') if os.environ.get('POSTGRES_DB') else 'lagoon'
+        pgsqlconn = psycopg2.connect(host=postgreshost, port=postgresport, user=postgresuser, password=postgrespassword, dbname=postgresdbname)
         pgsqlcursor = pgsqlconn.cursor()
         pgsqlcursor.execute('SELECT 1;')
         for row in pgsqlcursor:
