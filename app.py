@@ -11,8 +11,8 @@ def hello():
     result = "<p><b>Hello World!</b></p><p>This is {host}</p><p>The message is {message}</p>".format(host=os.environ.get('HOSTNAME','localhost'), message=os.environ.get('MESSAGE','none'))
 
     try:
-        mariadbhost = os.environ.get('MARIADB_HOST') if os.environ.get('MARIADB_HOST') else 'mariadb'
-        mariadbport = os.environ.get('MARIADB_PORT') if os.environ.get('MARIADB_PORT') else '3306'
+        mariadbhost = 'mariadb'
+        mariadbport = 3306
         mariadbuser = os.environ.get('MARIADB_USERNAME') if os.environ.get('MARIADB_USERNAME') else 'lagoon'
         mariadbpasswd = os.environ.get('MARIADB_PASSWORD') if os.environ.get('MARIADB_PASSWORD') else 'lagoon'
         mariadbdb = os.environ.get('MARIADB_DATABASE') if os.environ.get('MARIADMARIADB_DATABASEB_PASSWORD') else 'lagoon'
@@ -34,8 +34,8 @@ def hello():
         result += "<p>PostgreSQL failed: {0}</p>".format(e)
 
     try:
-        redishost = os.environ.get('REDIS_HOST') if os.environ.get('REDIS_HOST') else 'redis'
-        redisport = os.environ.get('REDIS_PORT') if os.environ.get('REDIS_PORT') else '6379'
+        redishost = 'redis'
+        redisport = 6379
         redisconn = redis.StrictRedis(host=redishost, port=redisport)
         result += "<p>Redis: {0}</p>".format(redisconn.ping())
     except Exception as e:
