@@ -98,3 +98,4 @@ oc delete all -l app=pysummit
 oc delete all -l app=django-psql-example
 oc delete secret django-psql-example
 ~~~~
+
