@@ -653,17 +653,17 @@ parameters:
   - name: DB_USER
     description: database user
     generate: expression
-    from: "[a-zA-Z0-9]{40}"
+    from: "user[a-zA-Z0-9]{40}"
   - name: DB_PASS
     description: database password
     generate: expression
-    from: "[a-zA-Z0-9]{40}"
+    from: "pass[a-zA-Z0-9]{40}"
   - name: DB_NAME
     description: database name
     generate: expression
-    from: "[a-zA-Z0-9]{40}"
+    from: "db[a-zA-Z0-9]{40}"
   - name: DB_ROOT
-    description: database root user
+    description: database root password
     generate: expression
-    from: "[a-zA-Z0-9]{40}"
+    from: "root[a-zA-Z0-9]{40}"
 
