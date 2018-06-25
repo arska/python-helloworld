@@ -25,7 +25,7 @@ def hello():
         result += "<p>MySQL failed: {0}</p>".format(e)
 
     try:
-        postgreshost = 'postgres'
+        postgreshost = 'postgresql'
         postgresport = 5432
         postgresuser = os.environ.get('POSTGRES_USERNAME') if os.environ.get('POSTGRES_USERNAME') else 'lagoon'
         postgrespassword = os.environ.get('POSTGRES_PASSWORD') if os.environ.get('POSTGRES_PASSWORD') else 'lagoon'
