@@ -5,11 +5,11 @@ metadata:
   name: multiservice-template
 objects:
 - apiVersion: v1
-  data:
-    database-name: c2FtcGxlZGI=
-    database-password: UndTQUVPSWFqODdMR25qZQ==
-    database-root-password: SGFBODVZMWZJdExoUEx4aQ==
-    database-user: dXNlcjJNRA==
+  stringData:
+    database-name: ${DB_NAME}
+    database-password: ${DB_PASS}
+    database-root-password: ${DB_ROOT}
+    database-user: ${DB_USER}
   kind: Secret
   metadata:
     annotations:
@@ -23,11 +23,11 @@ objects:
     name: ${NAME}-mariadb
   type: Opaque
 - apiVersion: v1
-  data:
-    database-admin-password: RHBEN3dDUE5reEFWRUpINg==
-    database-name: c2FtcGxlZGI=
-    database-password: S0M1cjJIUDFkQTV5N1kwVA==
-    database-user: dXNlcktJVA==
+  stringData:
+    database-admin-password: ${DB_ROOT}
+    database-name: ${DB_NAME}
+    database-password: ${DB_PASS}
+    database-user: ${DB_USER}
   kind: Secret
   metadata:
     annotations:
@@ -41,10 +41,10 @@ objects:
     name: ${NAME}-mongodb
   type: Opaque
 - apiVersion: v1
-  data:
-    database-name: c2FtcGxlZGI=
-    database-password: MEhFT1lEOHZSVTJFWVBEZQ==
-    database-user: dXNlcjA0MQ==
+  stringData:
+    database-name: ${DB_NAME}
+    database-password: ${DB_PASS}
+    database-user: ${DB_USER}
   kind: Secret
   metadata:
     annotations:
@@ -57,8 +57,8 @@ objects:
     name: ${NAME}-postgresql
   type: Opaque
 - apiVersion: v1
-  data:
-    database-password: Ylljc3lYSUNlT3l0dmMzNA==
+  stringData:
+    database-password: ${DB_PASS}
   kind: Secret
   metadata:
     annotations:
@@ -649,6 +649,22 @@ parameters:
     from: "[a-zA-Z0-9]{40}"
   - name: WEBHOOK_SECRET
     description: A secret string used to configure the Generic webhook
+    generate: expression
+    from: "[a-zA-Z0-9]{40}"
+  - name: DB_USER
+    description: database user
+    generate: expression
+    from: "[a-zA-Z0-9]{40}"
+  - name: DB_PASS
+    description: database password
+    generate: expression
+    from: "[a-zA-Z0-9]{40}"
+  - name: DB_NAME
+    description: database name
+    generate: expression
+    from: "[a-zA-Z0-9]{40}"
+  - name: DB_ROOT
+    description: database root user
     generate: expression
     from: "[a-zA-Z0-9]{40}"
 
