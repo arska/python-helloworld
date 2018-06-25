@@ -29,7 +29,7 @@ def hello():
         postgresport = 5432
         postgresuser = os.environ.get('POSTGRES_USERNAME') if os.environ.get('POSTGRES_USERNAME') else 'lagoon'
         postgrespassword = os.environ.get('POSTGRES_PASSWORD') if os.environ.get('POSTGRES_PASSWORD') else 'lagoon'
-        postgresdbname = os.environ.get('POSTGRES_DB') if os.environ.get('POSTGRES_DB') else 'lagoon'
+        postgresdbname = os.environ.get('POSTGRES_DATABASE') if os.environ.get('POSTGRES_DATABASE') else 'lagoon'
         pgsqlconn = psycopg2.connect(host=postgreshost, port=postgresport, user=postgresuser, password=postgrespassword, dbname=postgresdbname)
         pgsqlcursor = pgsqlconn.cursor()
         pgsqlcursor.execute('SELECT 1;')
