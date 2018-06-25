@@ -11,11 +11,11 @@ def hello():
     result = "<p><b>Hello World!</b></p><p>This is {host}</p><p>The message is {message}</p>".format(host=os.environ.get('HOSTNAME','localhost'), message=os.environ.get('MESSAGE','none'))
 
     try:
-        mariadbhost = 'mariadb'
-        mariadbport = 3306
-        mariadbuser = os.environ.get('MARIADB_USERNAME') if os.environ.get('MARIADB_USERNAME') else 'lagoon'
-        mariadbpasswd = os.environ.get('MARIADB_PASSWORD') if os.environ.get('MARIADB_PASSWORD') else 'lagoon'
-        mariadbdb = os.environ.get('MARIADB_DATABASE') if os.environ.get('MARIADB_DATABASE') else 'lagoon'
+        mariadbhost = os.environ.get('MARIADB_HOST', 'mariadb')
+        mariadbport = os.environ.get('MARIADB_PORT', 3306)
+        mariadbuser = os.environ.get('MARIADB_USERNAME', 'lagoon')
+        mariadbpasswd = os.environ.get('MARIADB_PASSWORD', 'lagoon')
+        mariadbdb = os.environ.get('MARIADB_DATABASE', 'lagoon')
         mysqlconn = pymysql.connect(host=mariadbhost, port=int(mariadbport), user=mariadbuser, passwd=mariadbpasswd, db=mariadbdb)
         mysqlcursor = mysqlconn.cursor()
         mysqlcursor.execute('SELECT 1;')
@@ -25,11 +25,11 @@ def hello():
         result += "<p>MySQL failed: {0}</p>".format(e)
 
     try:
-        postgreshost = 'postgresql'
-        postgresport = 5432
-        postgresuser = os.environ.get('POSTGRES_USERNAME') if os.environ.get('POSTGRES_USERNAME') else 'lagoon'
-        postgrespassword = os.environ.get('POSTGRES_PASSWORD') if os.environ.get('POSTGRES_PASSWORD') else 'lagoon'
-        postgresdbname = os.environ.get('POSTGRES_DATABASE') if os.environ.get('POSTGRES_DATABASE') else 'lagoon'
+        postgreshost = os.environ.get('POSTGRES_HOST', 'postgresql')
+        postgresport = os.environ.get('POSTGRES_PORT', 5432)
+        postgresuser = os.environ.get('POSTGRES_USERNAME', 'lagoon')
+        postgrespassword = os.environ.get('POSTGRES_PASSWORD', 'lagoon')
+        postgresdbname = os.environ.get('POSTGRES_DATABASE', 'lagoon')
         pgsqlconn = psycopg2.connect(host=postgreshost, port=postgresport, user=postgresuser, password=postgrespassword, dbname=postgresdbname)
         pgsqlcursor = pgsqlconn.cursor()
         pgsqlcursor.execute('SELECT 1;')
@@ -39,8 +39,8 @@ def hello():
         result += "<p>PostgreSQL failed: {0}</p>".format(e)
 
     try:
-        redishost = 'redis'
-        redisport = 6379
+        redishost = os.environ.get('REDIS_HOST', 'redis')
+        redisport = os.environ.get('REDIS_PORT', 6379)
         redispassword = os.environ.get('REDIS_PASSWORD', None)
         redisconn = redis.StrictRedis(host=redishost, port=redisport, password=redispassword)
         result += "<p>Redis: {0}</p>".format(redisconn.ping())
