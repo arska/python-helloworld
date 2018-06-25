@@ -15,7 +15,7 @@ def hello():
         mariadbport = 3306
         mariadbuser = os.environ.get('MARIADB_USERNAME') if os.environ.get('MARIADB_USERNAME') else 'lagoon'
         mariadbpasswd = os.environ.get('MARIADB_PASSWORD') if os.environ.get('MARIADB_PASSWORD') else 'lagoon'
-        mariadbdb = os.environ.get('MARIADB_DATABASE') if os.environ.get('MARIADMARIADB_DATABASEB_PASSWORD') else 'lagoon'
+        mariadbdb = os.environ.get('MARIADB_DATABASE') if os.environ.get('MARIADB_DATABASE') else 'lagoon'
         mysqlconn = pymysql.connect(host=mariadbhost, port=int(mariadbport), user=mariadbuser, passwd=mariadbpasswd, db=mariadbdb)
         mysqlcursor = mysqlconn.cursor()
         mysqlcursor.execute('SELECT 1;')
@@ -41,7 +41,8 @@ def hello():
     try:
         redishost = 'redis'
         redisport = 6379
-        redisconn = redis.StrictRedis(host=redishost, port=redisport)
+        redispassword = os.environ.get('REDIS_PASSWORD', None)
+        redisconn = redis.StrictRedis(host=redishost, port=redisport, password=redispassword)
         result += "<p>Redis: {0}</p>".format(redisconn.ping())
     except Exception as e:
         result += "<p>Redis failed: {0}</p>".format(e)
