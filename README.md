@@ -2,6 +2,14 @@
 
 This is a demo project for http://python-summit.ch
 
+One can deploy this project using
+* OpenShift Source to Image using the Python builder
+  * oc new-app python~https://github.com/arska/python-helloworld
+* OpenShift Docker Build (see Dockerfile)
+  * oc new-app --strategy=docker https://github.com/arska/python-helloworld
+* OpenShift Template (see template.yaml)
+  * oc new-app -f https://raw.githubusercontent.com/arska/python-helloworld/master/template.yaml -p NAME=mydeployment
+
 ## docker build demo
 ~~~~
 git clone https://github.com/arska/python-helloworld
