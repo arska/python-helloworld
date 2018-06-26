@@ -3,7 +3,9 @@
 This is a lightweight application to demo deployment to OpenShift on https://appuio.ch and accessing multiple backend services (MySQL/MariaDB, PostgreSQL and Redis) within an OpenShift cluster
 
 One can deploy this project using
-* OpenShift Source to Image using the Python builder for the application only
+* Web-GUI using Source to image (s2i): "Add to project" -> search for "Python" -> Choose "Python" -> Next -> Version: 3.5, Name: flask-helloworld, Git Repository: https://github.com/arska/flask-helloworld.git -> Create -> Close
+
+* OpenShift Source to Image on the CLI using the Python builder for the application only
 ```
 oc new-app python:3.5~https://github.com/arska/python-helloworld
 oc expose service python-helloworld
