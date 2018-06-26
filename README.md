@@ -18,7 +18,10 @@ oc expose service python-helloworld
 oc new-app -f https://raw.githubusercontent.com/arska/python-helloworld/master/template.yaml -p NAME=python-helloworld
 ```
 
-you can clean up after with: oc delete all -l app=python-helloworld
+you can clean up after with:
+```
+oc delete all,secrets -l app=python-helloworld
+```
 
 you can also build/run this locally using docker:
 ```
