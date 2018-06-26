@@ -4,9 +4,9 @@ This is a lightweight application to demo deployment to OpenShift on https://app
 
 One can deploy this project using
 * OpenShift Source to Image using the Python builder for the application only
-  * oc new-app python~https://github.com/arska/python-helloworld; oc expose python-helloworld
+  * oc new-app python~https://github.com/arska/python-helloworld; oc expose service python-helloworld
 * OpenShift Docker Build (see Dockerfile, application only)
-  * oc new-app --strategy=docker https://github.com/arska/python-helloworld; oc expose python-helloworld
+  * oc new-app --strategy=docker https://github.com/arska/python-helloworld; oc expose service python-helloworld
 * OpenShift Template (see template.yaml) including the 3 databases:
   * oc new-app -f https://raw.githubusercontent.com/arska/python-helloworld/master/template.yaml -p NAME=mydeployment
 
