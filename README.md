@@ -1,13 +1,13 @@
 # really simple web application
 
-This is a demo project for http://python-summit.ch
+This is a lightweight application to demo deployment to OpenShift on https://appuio.ch and accessing multiple backend services (MySQL/MariaDB, PostgreSQL and Redis) within an OpenShift cluster
 
 One can deploy this project using
-* OpenShift Source to Image using the Python builder
+* OpenShift Source to Image using the Python builder for the application only
   * oc new-app python~https://github.com/arska/python-helloworld
-* OpenShift Docker Build (see Dockerfile)
+* OpenShift Docker Build (see Dockerfile, application only)
   * oc new-app --strategy=docker https://github.com/arska/python-helloworld
-* OpenShift Template (see template.yaml)
+* OpenShift Template (see template.yaml) including the 3 databases:
   * oc new-app -f https://raw.githubusercontent.com/arska/python-helloworld/master/template.yaml -p NAME=mydeployment
 
 ## docker build demo
