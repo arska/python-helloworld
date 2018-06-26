@@ -8,7 +8,15 @@ One can deploy this project using
 * OpenShift Docker Build (see Dockerfile, application only)
   * oc new-app --strategy=docker https://github.com/arska/python-helloworld; oc expose service python-helloworld
 * OpenShift Template (see template.yaml) including the 3 databases:
-  * oc new-app -f https://raw.githubusercontent.com/arska/python-helloworld/master/template.yaml -p NAME=mydeployment
+  * oc new-app -f https://raw.githubusercontent.com/arska/python-helloworld/master/template.yaml -p NAME=python-helloworld
+
+you can clean up after with: oc delete all -l app=python-helloworld
+
+you can also build/run this locally using docker:
+docker build -t python-helloworld .
+docker run -p 8080:8080 python-helloworld
+
+the application is then accessible at http://127.0.0.1:8080/
 
 ## docker build demo
 ~~~~
