@@ -4,12 +4,12 @@
 #
 #    pip-compile requirements.in
 #
-click==7.0                # via flask
-flask==1.1.1
+click==7.1.1              # via flask
+flask==1.1.2
 itsdangerous==1.1.0       # via flask
-jinja2==2.10.1            # via flask
+jinja2==2.11.2            # via flask
 markupsafe==1.1.1         # via jinja2
-psycopg2-binary==2.8.2
+psycopg2-binary==2.8.5
 pymysql==0.9.3
-redis==3.2.1
-werkzeug==0.15.3          # via flask
+redis==3.4.1
+werkzeug==1.0.1           # via flask
