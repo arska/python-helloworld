@@ -10,6 +10,6 @@ itsdangerous==1.1.0       # via flask
 jinja2==2.11.3            # via flask
 markupsafe==1.1.1         # via jinja2
 psycopg2-binary==2.9.1
-pymysql==0.9.3
+pymysql==0.10.1
 redis==3.4.1
 werkzeug==1.0.1           # via flask
