@@ -16,7 +16,7 @@ itsdangerous==2.1.0
     # via flask
 jinja2==3.0.3
     # via flask
-markupsafe==2.0.1
+markupsafe==2.1.0
     # via jinja2
 psycopg2-binary==2.9.3
     # via -r requirements.in
