@@ -12,7 +12,7 @@ flask==2.0.3
     # via -r requirements.in
 importlib-metadata==4.11.2
     # via click
-itsdangerous==2.1.0
+itsdangerous==2.1.1
     # via flask
 jinja2==3.0.3
     # via flask
