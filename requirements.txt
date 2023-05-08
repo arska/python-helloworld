@@ -22,7 +22,7 @@ psycopg2-binary==2.9.6
     # via -r requirements.in
 pymysql==1.0.3
     # via -r requirements.in
-redis==4.5.4
+redis==4.5.5
     # via -r requirements.in
 typing-extensions==4.5.0
     # via importlib-metadata
