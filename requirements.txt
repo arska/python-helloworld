@@ -24,7 +24,7 @@ pymysql==1.0.3
     # via -r requirements.in
 redis==4.5.5
     # via -r requirements.in
-typing-extensions==4.6.1
+typing-extensions==4.6.2
     # via importlib-metadata
 werkzeug==2.3.4
     # via flask
