@@ -28,5 +28,5 @@ typing-extensions==4.8.0
     # via importlib-metadata
 werkzeug==2.3.7
     # via flask
-zipp==3.16.2
+zipp==3.17.0
     # via importlib-metadata
